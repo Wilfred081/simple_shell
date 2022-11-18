@@ -35,7 +35,7 @@ if (!s[j])
 for (k = 0; k < j; k++)
 free(s[k]);
 free(s);
-return (NULL);
+return (NULL)
 }
 for (m = 0; m < k; m++)
 s[j][m] = str[i++];
@@ -45,11 +45,11 @@ s[j] = NULL;
 return (s);
 }
 /**
- *  * **strtow2 - splits a string into words
- *   * @str: the input string
- *    * @d: the delimeter
- *     * Return: a pointer to an array of strings, or NULL on failure
- *      */
+ * **strtow2 - splits a string into words
+ * @str: the input string
+ * @d: the delimeter
+ * Return: a pointer to an array of strings, or NULL on failure
+ */
 char **strtow2(char *str, char d)
 {
 int i, j, k, m, numwords = 0;
