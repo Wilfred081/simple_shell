@@ -1,4 +1,5 @@
 #ifndef _SHELL_H_
+
 #define _SHELL_H_
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,6 +11,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
+
 /* for read/write buffers */
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
@@ -39,8 +41,7 @@ typedef struct liststr
 int num;
 char *str;
 struct liststr *next;
-}
-list_t;
+} list_t;
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
  *allowing uniform prototype for function pointer struct
@@ -83,22 +84,20 @@ char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
 int cmd_buf_type; /* CMD_type ||, &&, ; */
 int readfd;
 int histcount;
-} 
-info_t;
+} info_t;
 #define INFO_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-0, 0, 0}
+	0, 0, 0}
 /**
-*struct builtin - contains a builtin string and related function 
-*@type: the builtin command flag
-*@func: the function
-*/
+ *struct builtin - contains a builtin string and related function
+ *@type: the builtin command flag
+ *@func: the function
+ */
 typedef struct builtin
 {
 char *type;
 int (*func)(info_t *);
-}
-builtin_table;
+} builtin_table;
 /* toem_shloop.c */
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
@@ -109,7 +108,7 @@ int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
 char *find_path(info_t *, char *, char *);
 /* loophsh.c */
-int loophsh(char **)
+int loophsh(char **);
 /* toem_errors.c */
 void _eputs(char *);
 int _eputchar(char);
@@ -158,7 +157,7 @@ int _myhistory(info_t *);
 int _myalias(info_t *);
 /*toem_getline.c */
 ssize_t get_input(info_t *);
-int _getline(info_t *, har **, size_t *);
+int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 /* toem_getinfo.c */
 void clear_info(info_t *);
